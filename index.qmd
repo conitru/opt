@@ -1,0 +1,163 @@
+---
+title: "Propuesta de Índice de Viabilidad Programática (IVP) – Escuela de Construcción"
+subtitle: "Documento de trabajo para la Oficina de Prospectiva y Tendencias"
+author: "Constanza Trujillo"
+format:
+  html:
+    toc: true
+    number-sections: true
+    code-fold: true
+    math: mathjax
+---
+
+# Introducción
+
+Este documento propone el **Índice de Viabilidad Programática (IVP)** para carreras de la Escuela de Construcción. El IVP entrega una medición **0–100** basada en los **estudios focalizados** de cada carrera, para orientar decisiones de **actualización curricular** (semaforo verde/amarillo/rojo).
+
+# Objetivo
+
+Generar un índice **operativo y replicable** que:
+
+1.  Normalice a 0–100 un conjunto breve de indicadores
+
+2.  Calcule un **puntaje ponderado (IVP)**
+
+# Indicadores
+
+## Oferta Académica y Matrícula (S₁)
+
+**Qué mide:** estabilidad y atractivo de la carrera en términos de oferta de programas y evolución de matrícula.
+
+**Variables clave:**
+
+-   **Número de programas vigentes y su duración en el tiempo.**
+
+-   **Evolución de matrícula (crecimiento o decrecimiento).**
+
+    -   Usar la tasa de crecimiento anual compuesta (CAGR) de la matrícula de inicio.
+
+        -   *La tasa de crecimiento anual compuesta (CAGR, por sus siglas en inglés: Compound Annual Growth Rate) es una forma de expresar cuánto crece o decrece en promedio cada año una variable a lo largo de un período de tiempo, suponiendo que ese crecimiento fuera constante y compuesto.*
+
+        -   Fórmula general
+
+$$
+\text{CAGR} = \left( \frac{V_{n}}{V_{0}} \right)^{\tfrac{1}{n}} - 1
+$$
+
+donde:
+
+- \(V_0\) = valor inicial,  
+- \(V_n\) = valor final después de \(n\) años,  
+- \(n\) = número de años del período.
+
+    -   Idea: si la matrícula crece en promedio, buen puntaje; si decrece, mal puntaje.
+
+    <!-- -->
+
+    -   *Ejemplo: Restauración presenta ≈ –1,1% CAGR (tendencia levemente negativa).*
+
+-   **Cohorte de inicio (tamaño actual).**
+
+    -   Medir el número de estudiantes de primer año en la última cohorte (ej. 48 en 2024).
+
+    -   Compararlo contra un **valor de referencia** (ejemplo: 100 estudiantes = 100 puntos).
+
+    -   Sirve para poner en contexto la **escala** de la carrera.
+
+-   **Vigencia en los últimos 5 años (si la carrera efectivamente abrió cupos cada año).**
+
+    -   Contar cuántos de los últimos 5 años la carrera tuvo matrícula de inicio.
+
+    -   Si en todos los últimos 5 años abrió, puntaje máximo.
+
+    -   Si dejó de abrir algún año, se reduce el puntaje.
+
+### Ejemplo de normalización (0–100)
+
+**Crecimiento de matrícula (gₘ):**
+
+-   Si gₘ ≤ –5% → 0 puntos.
+
+-   Si gₘ = 0% → 50 puntos.
+
+-   Si gₘ ≥ +5% → 100 puntos.
+
+-   Valores intermedios se interpolan (si el valor no está justo en un extremo, se calcula proporcionalmente en el tramo lineal que le corresponde.)
+
+**Tamaño de cohorte (c):**
+
+-   Puntaje = (c / cₘₐₓ) × 100, truncado a 100.
+
+-   Donde cₘₐₓ es un valor de referencia institucional (ej. 100 alumnos).
+
+**Vigencia (a):**
+
+-   Puntaje = (a / 5) × 100.
+
+-   Donde a es el número de años con matrícula en los últimos 5.
+
+**Fórmula agregada de Oferta & Matrícula**
+
+Si damos pesos internos (por ejemplo: 50% crecimiento, 30% cohorte, 20% vigencia), se obtiene:
+
+$$
+S_{1} \;=\; 0.5 \cdot f_{\text{CrecMat}}(g_{m})
+\;+\; 0.3 \cdot f_{\text{Cohorte}}(c)
+\;+\; 0.2 \cdot f_{\text{Vigencia}}(a)
+$$ donde cada función (f) devuelve un puntaje en el rango 0–100.
+
+## Titulación y Trayectorias
+
+**Qué mide:** resultados de la carrera en términos de egresados y continuidad formativa.
+
+**Variables clave:**
+
+-   Número de titulados anuales y su variación promedio anual.
+
+-   Distribución regional de titulados.
+
+-   Continuidad de estudios (qué % de egresados sigue estudiando).
+
+## Empleabilidad e Ingresos
+
+**Qué mide:** pertinencia laboral de la formación.
+
+**Variables clave:**
+
+-   Tasa de ocupación de titulados (% trabajando).
+
+-   Niveles de ingreso promedio (en comparación a benchmark o mediana del sistema).
+
+-   Estabilidad contractual (proporción con contrato indefinido vs. honorarios).
+
+## Satisfacción y Pertinencia
+
+**Qué mide:** percepción de los titulados respecto a la formación recibida.
+
+**Variables clave:**
+
+-   Satisfacción global con la carrera.
+
+-   Satisfacción con la formación disciplinar.
+
+-   Satisfacción con competencias transversales.
+
+-   Pertinencia percibida entre lo estudiado y lo que efectivamente realizan en el trabajo.
+
+## Competencias Internacionales
+
+**Qué mide:** alineación del perfil de egreso con marcos de cualificaciones y perfiles ocupacionales internacionales.
+
+**Variables clave:**
+
+-   Concordancia con las competencias integradas que se identificaron en la revisión internacional.
+
+## Perspectiva Tecnológica
+
+**Qué mide:** nivel de actualización de la carrera frente a innovaciones técnicas y metodológicas del área.
+
+**Variables clave:**
+
+-   Adopción de nuevas tecnologías.
+
+-   Brecha identificada en relación a tendencias internacionales.
