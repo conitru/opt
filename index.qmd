@@ -110,11 +110,48 @@ $$ donde cada función (f) devuelve un puntaje en el rango 0–100.
 
 **Variables clave:**
 
--   Número de titulados anuales y su variación promedio anual.
+**Crecimiento de titulados** (g_t, en %):  
+   Mide la tendencia de titulados usando, por ejemplo, la **CAGR**.  
 
--   Distribución regional de titulados.
+2. **Vigencia de titulación** (a_t):  
+   Número de años, de los últimos 5, en que hubo titulados.  
 
--   Continuidad de estudios (qué % de egresados sigue estudiando).
+3. **Continuidad de estudios** (p_ce, en %):  
+   Porcentaje de titulados que siguen estudiando (si el dato está disponible).  
+
+---
+
+### Normalizaciones (0–100)
+
+- Crecimiento de titulados:
+
+$$
+\text{CrecTit} \;=\; 50 \;+\; 5 \cdot g_{t}
+$$
+
+- Vigencia de titulación:
+
+$$
+\text{VigTit} \;=\; 20 \cdot a_{t}
+$$
+
+- Continuidad de estudios:
+
+$$
+\text{ContEst} \;=\; p_{ce}
+$$
+
+---
+
+### Fórmula agregada de S₂
+
+Ejemplo de ponderaciones: 50% crecimiento, 30% vigencia, 20% continuidad.
+
+$$
+S_{2} \;=\; 0.5 \cdot \text{CrecTit}
+\;+\; 0.3 \cdot \text{VigTit}
+\;+\; 0.2 \cdot \text{ContEst}
+$$
 
 ## Empleabilidad e Ingresos
 

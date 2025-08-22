@@ -83,7 +83,11 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#ejemplo-de-normalización-0100" id="toc-ejemplo-de-normalización-0100" class="nav-link" data-scroll-target="#ejemplo-de-normalización-0100"><span class="header-section-number">3.1.1</span> Ejemplo de normalización (0–100)</a></li>
   </ul></li>
-  <li><a href="#titulación-y-trayectorias" id="toc-titulación-y-trayectorias" class="nav-link" data-scroll-target="#titulación-y-trayectorias"><span class="header-section-number">3.2</span> Titulación y Trayectorias</a></li>
+  <li><a href="#titulación-y-trayectorias" id="toc-titulación-y-trayectorias" class="nav-link" data-scroll-target="#titulación-y-trayectorias"><span class="header-section-number">3.2</span> Titulación y Trayectorias</a>
+  <ul class="collapse">
+  <li><a href="#normalizaciones-0100" id="toc-normalizaciones-0100" class="nav-link" data-scroll-target="#normalizaciones-0100"><span class="header-section-number">3.2.1</span> Normalizaciones (0–100)</a></li>
+  <li><a href="#fórmula-agregada-de-s₂" id="toc-fórmula-agregada-de-s₂" class="nav-link" data-scroll-target="#fórmula-agregada-de-s₂"><span class="header-section-number">3.2.2</span> Fórmula agregada de S₂</a></li>
+  </ul></li>
   <li><a href="#empleabilidad-e-ingresos" id="toc-empleabilidad-e-ingresos" class="nav-link" data-scroll-target="#empleabilidad-e-ingresos"><span class="header-section-number">3.3</span> Empleabilidad e Ingresos</a></li>
   <li><a href="#satisfacción-y-pertinencia" id="toc-satisfacción-y-pertinencia" class="nav-link" data-scroll-target="#satisfacción-y-pertinencia"><span class="header-section-number">3.4</span> Satisfacción y Pertinencia</a></li>
   <li><a href="#competencias-internacionales" id="toc-competencias-internacionales" class="nav-link" data-scroll-target="#competencias-internacionales"><span class="header-section-number">3.5</span> Competencias Internacionales</a></li>
@@ -210,11 +214,46 @@ S_{1} \;=\; 0.5 \cdot f_{\text{CrecMat}}(g_{m})
 <h2 data-number="3.2" class="anchored" data-anchor-id="titulación-y-trayectorias"><span class="header-section-number">3.2</span> Titulación y Trayectorias</h2>
 <p><strong>Qué mide:</strong> resultados de la carrera en términos de egresados y continuidad formativa.</p>
 <p><strong>Variables clave:</strong></p>
+<p><strong>Crecimiento de titulados</strong> (g_t, en %):<br>
+Mide la tendencia de titulados usando, por ejemplo, la <strong>CAGR</strong>.</p>
+<ol start="2" type="1">
+<li><p><strong>Vigencia de titulación</strong> (a_t):<br>
+Número de años, de los últimos 5, en que hubo titulados.</p></li>
+<li><p><strong>Continuidad de estudios</strong> (p_ce, en %):<br>
+Porcentaje de titulados que siguen estudiando (si el dato está disponible).</p></li>
+</ol>
+<hr>
+<section id="normalizaciones-0100" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="normalizaciones-0100"><span class="header-section-number">3.2.1</span> Normalizaciones (0–100)</h3>
 <ul>
-<li><p>Número de titulados anuales y su variación promedio anual.</p></li>
-<li><p>Distribución regional de titulados.</p></li>
-<li><p>Continuidad de estudios (qué % de egresados sigue estudiando).</p></li>
+<li>Crecimiento de titulados:</li>
 </ul>
+<p><span class="math display">\[
+\text{CrecTit} \;=\; 50 \;+\; 5 \cdot g_{t}
+\]</span></p>
+<ul>
+<li>Vigencia de titulación:</li>
+</ul>
+<p><span class="math display">\[
+\text{VigTit} \;=\; 20 \cdot a_{t}
+\]</span></p>
+<ul>
+<li>Continuidad de estudios:</li>
+</ul>
+<p><span class="math display">\[
+\text{ContEst} \;=\; p_{ce}
+\]</span></p>
+<hr>
+</section>
+<section id="fórmula-agregada-de-s₂" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="fórmula-agregada-de-s₂"><span class="header-section-number">3.2.2</span> Fórmula agregada de S₂</h3>
+<p>Ejemplo de ponderaciones: 50% crecimiento, 30% vigencia, 20% continuidad.</p>
+<p><span class="math display">\[
+S_{2} \;=\; 0.5 \cdot \text{CrecTit}
+\;+\; 0.3 \cdot \text{VigTit}
+\;+\; 0.2 \cdot \text{ContEst}
+\]</span></p>
+</section>
 </section>
 <section id="empleabilidad-e-ingresos" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="empleabilidad-e-ingresos"><span class="header-section-number">3.3</span> Empleabilidad e Ingresos</h2>
