@@ -30,8 +30,6 @@ Generar un índice **operativo y replicable** que:
 
 **Variables clave:**
 
--   **Número de programas vigentes y su duración en el tiempo.**
-
 -   **Evolución de matrícula (crecimiento o decrecimiento).**
 
     -   Usar la tasa de crecimiento anual compuesta (CAGR) de la matrícula de inicio.
