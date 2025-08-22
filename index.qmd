@@ -8,6 +8,16 @@ format:
     number-sections: true
     code-fold: true
     math: mathjax
+    include-in-header:
+      text: |
+        <style>
+          /* Párrafos y listas justificados */
+          p { text-align: justify; }
+          li { text-align: justify; }
+
+          /* Subtítulos de figuras y tablas justificados (opcional) */
+          .figure-caption, .table-caption { text-align: justify; }
+        </style>
 ---
 
 # Introducción
