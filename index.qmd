@@ -44,15 +44,13 @@ $$
 
 donde:
 
-- \(V_0\) = valor inicial,  
-- \(V_n\) = valor final después de \(n\) años,  
-- \(n\) = número de años del período.
+- $V_0$ = valor inicial,  
+- $V_n$ = valor final después de $n$ años,  
+- $n$ = número de años del período.
 
     -   Idea: si la matrícula crece en promedio, buen puntaje; si decrece, mal puntaje.
-
-    <!-- -->
-
     -   *Ejemplo: Restauración presenta ≈ –1,1% CAGR (tendencia levemente negativa).*
+    
 
 -   **Cohorte de inicio (tamaño actual).**
 
@@ -74,23 +72,23 @@ donde:
 
 **Crecimiento de matrícula (gₘ):**
 
--   Si gₘ ≤ –5% → 0 puntos.
+-   Si $gₘ ≤ –5%$ → 0 puntos.
 
--   Si gₘ = 0% → 50 puntos.
+-   Si $gₘ = 0%$ → 50 puntos.
 
--   Si gₘ ≥ +5% → 100 puntos.
+-   Si $gₘ ≥ +5%$ → 100 puntos.
 
 -   Valores intermedios se interpolan (si el valor no está justo en un extremo, se calcula proporcionalmente en el tramo lineal que le corresponde.)
 
 **Tamaño de cohorte (c):**
 
--   Puntaje = (c / cₘₐₓ) × 100, truncado a 100.
+-   Puntaje = $(c / cₘₐₓ) × 100$, truncado a 100.
 
--   Donde cₘₐₓ es un valor de referencia institucional (ej. 100 alumnos).
+-   Donde $cₘₐₓ$ es un valor de referencia institucional (ej. 100 alumnos).
 
 **Vigencia (a):**
 
--   Puntaje = (a / 5) × 100.
+-   Puntaje = $(a / 5) × 100$.
 
 -   Donde a es el número de años con matrícula en los últimos 5.
 
@@ -104,38 +102,35 @@ S_{1} \;=\; 0.5 \cdot f_{\text{CrecMat}}(g_{m})
 \;+\; 0.2 \cdot f_{\text{Vigencia}}(a)
 $$ donde cada función (f) devuelve un puntaje en el rango 0–100.
 
-## Titulación y Trayectorias
+## Titulación y Trayectorias (S₂)
 
 **Qué mide:** resultados de la carrera en términos de egresados y continuidad formativa.
 
 **Variables clave:**
 
-**Crecimiento de titulados** (g_t, en %):  
-   Mide la tendencia de titulados usando, por ejemplo, la **CAGR**.  
+- Crecimiento de titulados ($g_t$ en %): Mide la tendencia de titulados usando, por ejemplo, la **CAGR**.  
 
-2. **Vigencia de titulación** (a_t):  
-   Número de años, de los últimos 5, en que hubo titulados.  
+- Vigencia de titulación ($a_t$): Número de años, de los últimos 5, en que hubo titulados.  
 
-3. **Continuidad de estudios** (p_ce, en %):  
-   Porcentaje de titulados que siguen estudiando (si el dato está disponible).  
+- Continuidad de estudios ($p_{ce}$ en %): Porcentaje de titulados que siguen estudiando (si el dato está disponible).  
 
 ---
 
 ### Normalizaciones (0–100)
 
-- Crecimiento de titulados:
+- **Crecimiento de titulados:**
 
 $$
 \text{CrecTit} \;=\; 50 \;+\; 5 \cdot g_{t}
 $$
 
-- Vigencia de titulación:
+- **Vigencia de titulación:**
 
 $$
 \text{VigTit} \;=\; 20 \cdot a_{t}
 $$
 
-- Continuidad de estudios:
+- **Continuidad de estudios:**
 
 $$
 \text{ContEst} \;=\; p_{ce}
@@ -153,46 +148,178 @@ S_{2} \;=\; 0.5 \cdot \text{CrecTit}
 \;+\; 0.2 \cdot \text{ContEst}
 $$
 
-## Empleabilidad e Ingresos
+## Empleabilidad e Ingresos (S₃)
 
 **Qué mide:** pertinencia laboral de la formación.
 
 **Variables clave:**
 
--   Tasa de ocupación de titulados (% trabajando).
+- Tasa de ocupación de titulados ($p_e$ en %).  
+- Ingreso promedio de los titulados ($y$) en comparación a un benchmark ($y_{ref}$).  
+- Estabilidad contractual: proporción de titulados con contrato indefinido u otras formas de estabilidad ($p_{ec}$ en %).  
 
--   Niveles de ingreso promedio (en comparación a benchmark o mediana del sistema).
+### Sub-indicadores
 
--   Estabilidad contractual (proporción con contrato indefinido vs. honorarios).
+- **Empleabilidad:**
 
-## Satisfacción y Pertinencia
+$$
+\text{Empleo} \;=\; p_{e}
+$$
+
+- **Ingreso relativo (truncado a 100):**
+
+$$
+\text{IngresoRel} \;=\; 100 \cdot \frac{y}{y_{\text{ref}}}
+$$
+
+- **Estabilidad contractual:**
+
+$$
+\text{Estabilidad} \;=\; p_{ec}
+$$
+
+---
+
+### Fórmula agregada de S₃
+
+Ejemplo de ponderaciones: 50% empleabilidad, 30% ingreso relativo y 20% estabilidad contractual.
+
+$$
+S_{3} \;=\; 0.5 \cdot \text{Empleo}
+\;+\; 0.3 \cdot \text{IngresoRel}
+\;+\; 0.2 \cdot \text{Estabilidad}
+$$
+
+## Satisfacción y Pertinencia (S₄)
 
 **Qué mide:** percepción de los titulados respecto a la formación recibida.
 
 **Variables clave:**
 
--   Satisfacción global con la carrera.
+- Satisfacción global con la carrera ($p_{sg}$ en %).  
+- Satisfacción con la formación disciplinar ($p_{sd}$ en %).  
+- Satisfacción con competencias transversales ($p_{st}$ en %).  
+- Pertinencia percibida entre lo estudiado y lo realizado en el trabajo ($p_{pt}$ en %).  
 
--   Satisfacción con la formación disciplinar.
+### Sub-indicadores
 
--   Satisfacción con competencias transversales.
+- **Satisfacción global:**
 
--   Pertinencia percibida entre lo estudiado y lo que efectivamente realizan en el trabajo.
+$$
+\text{SatGlobal} \;=\; p_{sg}
+$$
 
-## Competencias Internacionales
+- **Satisfacción disciplinar:**
+
+$$
+\text{SatDisc} \;=\; p_{sd}
+$$
+
+- **Satisfacción transversal:**
+
+$$
+\text{SatTrans} \;=\; p_{st}
+$$
+
+- **Pertinencia percibida:**
+
+$$
+\text{Pertinencia} \;=\; p_{pt}
+$$
+
+### Fórmula agregada de S₄
+
+Ejemplo de ponderaciones: 30% global, 30% disciplinar, 20% transversal y 20% pertinencia.
+
+$$
+S_{4} \;=\; 0.3 \cdot \text{SatGlobal}
+\;+\; 0.3 \cdot \text{SatDisc}
+\;+\; 0.2 \cdot \text{SatTrans}
+\;+\; 0.2 \cdot \text{Pertinencia}
+$$
+
+## Competencias Internacionales (S₅)
 
 **Qué mide:** alineación del perfil de egreso con marcos de cualificaciones y perfiles ocupacionales internacionales.
 
 **Variables clave:**
 
--   Concordancia con las competencias integradas que se identificaron en la revisión internacional.
+- Concordancia con las competencias integradas identificadas en la revisión internacional ($p_{ali}$ en %).
 
-## Perspectiva Tecnológica
+### Sub-indicador
+
+$$
+\text{Alineacion} \;=\; p_{ali}
+$$
+
+---
+
+### Fórmula agregada de S₅
+
+En este caso, como solo se utiliza la concordancia internacional:
+
+$$
+S_{5} \;=\; \text{Alineación}
+$$
+
+
+
+## Perspectiva Tecnológica (S₆)
 
 **Qué mide:** nivel de actualización de la carrera frente a innovaciones técnicas y metodológicas del área.
 
 **Variables clave:**
 
--   Adopción de nuevas tecnologías.
+- Adopción de nuevas tecnologías ($p_{tec}$ en %).  
+- Brecha identificada en relación a tendencias internacionales ($p_{bre}$ en %). 
 
--   Brecha identificada en relación a tendencias internacionales.
+### Sub-indicadores
+
+- **Adopción tecnológica:**
+
+$$
+\text{Tecnologia} \;=\; p_{tec}
+$$
+
+- **Brecha tecnológica (normalizada de forma inversa):**
+
+$$
+\text{BrechaInv} \;=\; 100 - p_{bre}
+$$
+
+---
+
+### Fórmula agregada de S₆
+
+Ejemplo de ponderaciones: 50% adopción tecnológica y 50% brecha inversa.
+
+$$
+S_{6} \;=\; 0.5 \cdot \text{Tecnologia}
+\;+\; 0.5 \cdot \text{BrechaInv}
+$$
+
+## Índice de Viabilidad Programática (IVP)
+
+**Componentes:** $S_1$ Oferta & Matrícula, $S_2$ Titulación & Trayectorias, $S_3$ Empleabilidad e Ingresos, $S_4$ Satisfacción & Pertinencia, $S_5$ Competencias Internacionales, $S_6$ Perspectiva Tecnológica.  
+**Pesos:** $w_1, \dots, w_6 \ge 0$, con $sum_{i=1}^{6} w_i = 100$.  
+*(Ejemplo de pesos: 20, 20, 20, 15, 15, 10).*
+
+### Fórmula del IVP
+
+$$
+\text{IVP} \;=\; 
+\frac{w_1 S_1 \;+\; w_2 S_2 \;+\; w_3 S_3 \;+\; w_4 S_4 \;+\; w_5 S_5 \;+\; w_6 S_6}{100}
+$$
+
+Cada $S_i$ debe estar truncado al rango $[0, 100]$ antes de la ponderación.
+
+### Semáforo (clasificación)
+
+$$
+\text{Semáforo} \;=\;
+\begin{cases}
+\text{VERDE} & \text{si } \text{IVP} \ge 80 \\[4pt]
+\text{AMARILLO} & \text{si } 50 \le \text{IVP} < 80 \\[4pt]
+\text{ROJO} & \text{si } \text{IVP} < 50
+\end{cases}
+$$
